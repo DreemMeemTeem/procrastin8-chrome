@@ -2,6 +2,10 @@
 <html>
 <head>
 <style type="text/css">
+    * {
+        margin: 0 auto;
+    }
+    
     body {
         margin: 0 auto;
         padding: 0px 0px 0px 0px;
@@ -9,6 +13,7 @@
     
     h1 {
         margin: 0;
+        text-align: center;
     }
     
     p {
@@ -16,7 +21,11 @@
         margin: 0 auto;
     }
     
-    
+    h3 {
+        text-align: center;
+        /*Negative margin for now*/
+        margin-top: -8px;
+    }
     
 	#mainPopup {
 		padding: 10px;
@@ -27,31 +36,35 @@
         padding: 0px 0px 0px 0px;
 	}
     
-    /*TOTAL POINTS STYLING*/
+    /*TOTAL POINTS AND TIME STYLING*/
     
-        /*Centers and de-margins*/
-        #totalpoints * {
-            margin: 0 auto;
+        #points * {
             text-align: center;
         }
 
-
+        #totalpoints {
+            margin-bottom: 10px;
+        }
         /*Make point number really huge*/
-        #totalpoints #pointnumber {
+        #totalpoints h1 {
             font-size: 5em;
         }
 
-        /*Pads the right side of both sections*/
-        #totalpoints,.breakdown {
-            margin-right: 20px;
+    
+        #totaltime p {
+            font-size: 3em;
         }
     
-    /*END TOTAL POINTS STYLING*/
+    /*END TOTAL POINTS AND TIME STYLING*/
     
     /*BREAKDOWN STYLING*/
         /*spaces the breakdowns apart vertically*/
         .breakdown div {
             margin-bottom: 20px;
+        }
+    
+        .breakdown h1 {
+            text-align: left;
         }
     
     /*END BREAKDOWN STYLING*/
@@ -68,6 +81,7 @@
         flex-flow: row nowrap;
         justify-content: space-around;
         align-items: center;
+        align-content: center;
     }
     
     /*---------------*/
@@ -86,10 +100,14 @@
 <body>
     <div id="flex-container">
         <div class="points">
+            <h1>Total:</h1>
             <div id="totalpoints">
-                <h1>Total:</h1>
-                <h1 id="pointnumber">150</h1>
+                <h1>150</h1>
                 <h3>points</h3>
+            </div>
+            <div id="totaltime">
+                <p id="timer-value">12:34:56</p>
+                <h3>time</h3>
             </div>
         </div>
         <div class="breakdown">
@@ -108,7 +126,7 @@
     </div>
     
     <div id="graph">
-        <p>this is where the beautifully designed graph will go</p>
+        <p>this is where the beautifully designed charts will go</p>
     </div>
     
     
