@@ -7,6 +7,7 @@
 
 //example of using a message handler from the inject scripts
 var timer = new Timer();
+var tracker = new Tracker();
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   switch (request.type) {
@@ -15,6 +16,9 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     break;
   case 'stopTimer':
     timer.stop()
+    break;
+  case 'resetTimer':
+    timer.reset()
     break;
   case 'getTimerStatus':
     sendResponse(timer.getState());

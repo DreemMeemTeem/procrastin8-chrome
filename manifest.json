@@ -12,7 +12,9 @@
   "default_locale": "en",
   "background": {
     "scripts": [
+      "vendor/urijs/URI.min.js",
       "timer.js",
+      "tracker.js",
       "background.js"
     ],
     "persistent": true
@@ -24,10 +26,10 @@
     "default_popup": "popup/popup.html"
   },
   "permissions": [
-    "alarms",
     "contentSettings",
     "notifications",
     "tabs",
+    "webNavigation",
     "windows",
     "*://*/*"
   ],
