@@ -11,19 +11,24 @@ var tracker = new Tracker();
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   switch (request.type) {
-  case 'startTimer':
-    timer.start()
-    break;
-  case 'stopTimer':
-    timer.stop()
-    break;
-  case 'resetTimer':
-    timer.reset()
-    break;
-  case 'getTimerStatus':
-    sendResponse(timer.getState());
-    break;
-  default:
-    // nothing here
+    case 'startTimer':
+      timer.start();
+      tracker.start();
+      break;
+    case 'stopTimer':
+      timer.stop();
+      tracker.stop();
+      break;
+    case 'resetTimer':
+      timer.reset()
+      break;
+    case 'getTimerStatus':
+      sendResponse(timer.getState());
+      break;
+    case 'getProductivityStatus':
+      sendResponse(tracker.getProductivityState());
+      break;
+    default:
+      // nothing here
   }
 });

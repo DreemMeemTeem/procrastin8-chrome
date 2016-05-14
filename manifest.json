@@ -13,7 +13,9 @@
   "background": {
     "scripts": [
       "vendor/urijs/URI.min.js",
+      "vendor/wildcard/wildcard.js",
       "timer.js",
+      "gradeSite.js",
       "tracker.js",
       "background.js"
     ],

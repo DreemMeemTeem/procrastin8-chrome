@@ -28,13 +28,29 @@ $('#timer-resetButton').click(function() {
 function forceSetTimerValue() {
   chrome.runtime.sendMessage({type: 'getTimerStatus'}, function(timer) {
     $('#timer-value').text(timer.value);  // TODO: format as h:mm:ss
+    if (timer.active) {
+      $('#timer-startButton').hide();
+      $('#timer-stopButton').show();
+    } else {
+      $('#timer-startButton').show();
+      $('#timer-stopButton').hide();
+    }
+  });
+  
+  chrome.runtime.sendMessage({type: 'getProductivityStatus'}, function(state) {
+    $('#protime').text(state.productive);  // TODO: format as h:mm:ss
+    $('#unprotime').text(state.unproductive);  // TODO: format as h:mm:ss
   });
 }
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   if (request.type === 'tick-master') {
     $('#timer-value').text(request.value);  // TODO: format as h:mm:ss
-  } else if ('tick-site') {
+  } else if (request.type === 'tick-site') {
     
+  } else if (request.type === 'tick-productive') {
+    $('#protime').text(request.value);  // TODO: format as h:mm:ss
+  } else if (request.type === 'tick-unproductive') {
+    $('#unprotime').text(request.value);  // TODO: format as h:mm:ss
   }
 });

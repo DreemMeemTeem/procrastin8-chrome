@@ -1,8 +1,7 @@
-Timer = function(type, site) {
+Timer = function(type) {
   var self = this;
   
   self.timertype = type || 'master';
-  self.timersite = site;
   
   self.startTime = Date.now();
   self.value = 0;
@@ -12,8 +11,7 @@ Timer.prototype.tick = function(self) {
   self.value += 1;
   chrome.runtime.sendMessage({
     type: 'tick-' + self.timertype,
-    value: self.value,
-    site: self.timersite
+    value: self.value
   });
 }
 
