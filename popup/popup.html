@@ -4,8 +4,17 @@
     
     
 <style type="text/css">
+    
+    @import url(../sprites.css);
+    
+    @font-face {
+            font-family: Minecraft;
+            src: url(../Minecraftia.ttf);
+        }
+    
     * {
         margin: 0 auto;
+        font-family: Minecraft;
     }
     
     body {
@@ -46,15 +55,19 @@
 
         #totalpoints {
             margin-bottom: 10px;
+
         }
         /*Make point number really huge*/
         #totalpoints h1 {
             font-size: 5em;
+            margin-top: 10px;
+            line-height: 55px;
         }
 
     
         #totaltime p {
             font-size: 3em;
+            line-height: 55px;
         }
     
     #timer-value {
@@ -64,13 +77,23 @@
     /*END TOTAL POINTS AND TIME STYLING*/
     
     /*BREAKDOWN STYLING*/
+        .breakdown {
+            padding-left: 15px;
+            padding-top: 30px;
+            text-align: center;
+            border-left: 1px solid black;
+            height: 200px;
+        }
+    
         /*spaces the breakdowns apart vertically*/
         .breakdown div {
             margin-bottom: 20px;
         }
     
         .breakdown h1 {
-            text-align: left;
+            text-align: center;
+            line-height: 10px;
+            font-size: 1.5em;
         }
     
     /*END BREAKDOWN STYLING*/
@@ -88,6 +111,7 @@
         justify-content: space-around;
         align-items: center;
         align-content: center;
+        background-color: #EEEEEE;
     }
     
     /*---------------*/
@@ -112,11 +136,28 @@
             width: 30px;
             height: 30px;
             border-style: none;
-            background-color: white;
+            background-color:transparent;
         }
         
+        #dashboard {
+            position: fixed;
+            left: 70px;
+            top: 8px;
+            width: 90px;
+            height: 30px;
+            line-height: 30px;
+            text-decoration: none;
+            color: black;
+            text-align: center;
+        }
+    
+        #dashboard:hover {
+            color: rgba(75,75,75,1);
+        }
+    
         #timer-startButton {
             background-image: url(start.svg);
+            background-color: transparent;
         }
     
         #timer-stopButton {
@@ -142,6 +183,67 @@
         }
     }
     
+    
+    
+    /*Dumb animation*/
+    
+    #sprite-1 {
+            background-image: url(../img/sprite-1.png);
+        }
+    
+    /*Spritesheet text boxes */
+        .procrastin8-sprite p {
+            display: inline-block;
+            word-wrap: break-word;
+            width: 200px;
+            height: 37px;
+            overflow: hidden;
+            font-family: Minecraft;
+            text-align: center;
+            margin-left: 20px;
+            margin-top: 18px;
+            z-index: 99;
+        }
+    
+    /*Bubble positioning*/
+        .procrastin8-bubble {
+            width: 244.5px;
+            height: 91px;
+            background-size: contain;
+            background-position: center center;
+            float: left;
+            background-repeat: no-repeat;
+        }
+    
+    .left {
+            margin-left: -200px;
+            margin-top: -10px;
+            padding-right: 15px;
+            background-image: url(../img/bubble-left.png);
+        }
+    
+    .moveupfrombottom {
+            position: fixed;
+            bottom: -250px;
+            /*This right style should be the one changed by the js, so that the sprites pop up randomly along the bottom*/
+            right: 0px;
+            /*Make sure the sprites with "left" classes on them don't appear on the leftmost side of the screen, and vice versa with right.*/
+            
+            -webkit-animation: moveup 2s ease-in-out alternate 1;
+           -moz-animation: moveup 2s ease-in-out alternate 1;
+            -ms-animation: moveup 2s ease-in-out alternate 1;
+             -o-animation: moveup 2s ease-in-out alternate 1;
+                animation: moveup 2s ease-in-out alternate 1;
+        animation-fill-mode: forwards;
+        }
+    
+    @-webkit-keyframes moveup {
+            0% {bottom: -250px;}
+            40% { bottom: -100px; } 
+            45% { bottom: -108px; } 
+            100% {bottom: -108px;}
+            
+        }
 </style>
 </head>
 <body>
@@ -152,6 +254,7 @@
         <button id="timer-startButton"></button>
         <button id="timer-stopButton"></button>
         <button id="timer-resetButton"></button>
+        <a id="dashboard" href="http://www.google.com">Dashboard</a>
     </div>
     <div id="flex-container">
         <div class="points">
@@ -184,8 +287,11 @@
         <p>this is where the beautifully designed charts will go</p>
     </div>
     
-    
+    <div class="procrastin8-sprite moveupfrombottom" id="sprite-1">
+        <div class="procrastin8-bubble left"><p>Get back to work</p></div>
+    </div>
 
+    
 </div>
 
 <script src="../vendor/jquery/jquery.min.js"></script>
