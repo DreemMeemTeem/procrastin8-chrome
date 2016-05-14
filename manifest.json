@@ -12,15 +12,17 @@
   "default_locale": "en",
   "background": {
     "scripts": [
-      "src/bg/background.js"
+      "vendor/jquery/jquery.min.js",
+      "timer.js",
+      "background.js"
     ],
     "persistent": true
   },
-  "options_page": "src/options_custom/index.html",
+  "options_page": "options/index.html",
   "browser_action": {
     "default_icon": "icons/icon19.png",
     "default_title": "Procrastin8",
-    "default_popup": "src/popup/popup.html"
+    "default_popup": "popup/popup.html"
   },
   "permissions": [
     "alarms",
@@ -36,7 +38,7 @@
         "<all_urls>"
       ],
       "css": [
-        "src/inject/procrastin8.css"
+        "inject/procrastin8.css"
       ]
     },
     {
@@ -44,7 +46,7 @@
         "<all_urls>"
       ],
       "js": [
-        "src/inject/procrastin8.js"
+        "inject/procrastin8.js"
       ]
     }
   ]

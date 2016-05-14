@@ -14,7 +14,7 @@ var Timer = function() {
     });
 }
 
-Timer.prototype.start() {
+Timer.prototype.start = function() {
   var self = this;
   
   self.value = 0;
@@ -22,20 +22,20 @@ Timer.prototype.start() {
   return self.interval
 }
 
-Timer.prototype.stop() {
+Timer.prototype.stop = function() {
   var self = this;
   
   clearInterval(self.interval);
 }
 
-Timer.prototype.resume() {
+Timer.prototype.resume = function() {
   var self = this;
   
   self.interval = setInterval(Timer.increment, 1000);
   return self.interval
 }
 
-Timer.prototype.increment() {
+Timer.prototype.increment = function() {
   var self = this;
   self.value++;
 }
