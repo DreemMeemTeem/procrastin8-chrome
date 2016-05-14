@@ -1,0 +1,47 @@
+/*PUT THIS IN THE HTML
+
+    <div class="procrastin8-sprite" id="sprite-1">
+    </div>
+    <div class="procrastin8-sprite" id="sprite-2">
+    </div>
+    <div class="procrastin8-sprite" id="sprite-3">
+    </div>
+    <div class="procrastin8-sprite" id="sprite-4">
+    </div>
+*/
+
+
+        .procrastin8-sprite {
+            width: 206px;
+            height: 228.5px;
+            -webkit-animation: play .8s steps(3) infinite;
+           -moz-animation: play .8s steps(3) infinite;
+            -ms-animation: play .8s steps(3) infinite;
+             -o-animation: play .8s steps(3) infinite;
+                animation: play .8s steps(3) infinite;
+            float: left;
+        }
+        
+        @-webkit-keyframes play {
+           from { background-position:    0px; }
+             to { background-position: 685.5px; }
+        }
+        
+        #sprite-1 {
+            background-image: url(img/sprite-1.png);
+        }
+        
+        #sprite-2 {
+            background-image: url(img/sprite-2.png);
+        }
+        
+        #sprite-3 {
+            background-image: url(img/sprite-3.png);
+        }
+        
+        #sprite-4 {
+            background-image: url(img/sprite-4.png);
+        }
+        
+
+
