@@ -1,5 +1,5 @@
 # procrastin8-chrome
-Procrastin8 extension for Google Chrome.
+Procrastin8 extension for [Google Ultron](http://ultronbrowser.io/).
 
 #### Features: ####
 * stopwatch
