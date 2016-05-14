@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
 <head>
+    
+    
 <style type="text/css">
     * {
         margin: 0 auto;
@@ -94,10 +96,56 @@
         height: 200px;
         background-color: rgba(200,200,200,1);
     }
+    /*TOP BAR STYLING */
+        
+        button {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            width: 30px;
+            height: 30px;
+            border-style: none;
+            background-color: white;
+        }
+        
+        #timer-startButton {
+            background-image: url(start.svg);
+        }
+    
+        #timer-stopButton {
+            background-image: url(stop.svg);
+        }
+        /*Reset button is next to the other two*/
+        #timer-resetButton {
+            background-image: url(reset.svg);
+            left: 30px;
+            width: 25px;
+            height: 25px;
+            top: 2.5px;
+        }
+    
+        button:focus {
+            outline:0;
+        }
+    
+        #timer-startButton:hover,#timer-stopButton:hover,#timer-resetButton:hover {
+            cursor: pointer;
+            background-color: rgba(245,245,245,1);
+        }
+    }
     
 </style>
 </head>
 <body>
+    <div id="topbar">
+        <!--One of the buttons should be display:none; when the other is active.-->
+        <button id="timer-startButton"></button>
+        <button id="timer-stopButton"></button>
+        <button id="timer-resetButton"></button>
+    </div>
     <div id="flex-container">
         <div class="points">
             <h1>Total:</h1>
