@@ -2,18 +2,116 @@
 <html>
 <head>
 <style type="text/css">
+    body {
+        margin: 0 auto;
+        padding: 0px 0px 0px 0px;
+    }
+    
+    h1 {
+        margin: 0;
+    }
+    
+    p {
+        font-size: 1.5em;
+        margin: 0 auto;
+    }
+    
+    
+    
 	#mainPopup {
 		padding: 10px;
-		height: 200px;
+		height: 600px;
 		width: 400px;
 		font-family: Helvetica, Ubuntu, Arial, sans-serif;
+        margin: 0 auto;
+        padding: 0px 0px 0px 0px;
 	}
-	h1 {
-		font-size: 2em;
-	}
+    
+    /*TOTAL POINTS STYLING*/
+    
+        /*Centers and de-margins*/
+        #totalpoints * {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+
+        /*Make point number really huge*/
+        #totalpoints #pointnumber {
+            font-size: 5em;
+        }
+
+        /*Pads the right side of both sections*/
+        #totalpoints,.breakdown {
+            margin-right: 20px;
+        }
+    
+    /*END TOTAL POINTS STYLING*/
+    
+    /*BREAKDOWN STYLING*/
+        /*spaces the breakdowns apart vertically*/
+        .breakdown div {
+            margin-bottom: 20px;
+        }
+    
+    /*END BREAKDOWN STYLING*/
+    
+    /*---------------*/
+    /*   Flex Stuff  */
+    /*---------------*/
+    #flex-container {
+        width: 100%;
+        height: 50%;
+        margin: 0 auto;
+        padding: 10px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    /*---------------*/
+    /*End Flex Stuff */
+    /*---------------*/
+    
+    
+    #graph {
+        width: 100%;
+        height: 200px;
+        background-color: rgba(200,200,200,1);
+    }
+    
 </style>
 </head>
 <body>
+    <div id="flex-container">
+        <div class="points">
+            <div id="totalpoints">
+                <h1>Total:</h1>
+                <h1 id="pointnumber">150</h1>
+                <h3>points</h3>
+            </div>
+        </div>
+        <div class="breakdown">
+            <div id="productive">
+                <h1>Productive:</h1>
+                <p id="protime">1:23:45</p>
+                <p style="color: green">(+<a id="propoints">15</a> pts)</p>
+            </div>
+            
+            <div id="unproductive">
+                <h1>Unproductive:</h1>
+                <p id="unprotime">0:12:34</p>
+                <p style="color: red">(-<a id="unpropoints">5</a> pts)</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="graph">
+        <p>this is where the beautifully designed graph will go</p>
+    </div>
+    
+    
 <div id="mainPopup">
 <div id="timer-startButton" style="background-color:green;">Start Timer</div>
 <div id="timer-stopButton" style="background-color:red;">Stop Timer</div>
@@ -25,3 +123,4 @@
 <script src="popup.js"></script>
 </body>
 </html>
+
