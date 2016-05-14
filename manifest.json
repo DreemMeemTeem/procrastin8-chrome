@@ -20,12 +20,14 @@
   "browser_action": {
     "default_icon": "icons/icon19.png",
     "default_title": "Procrastin8",
-    "default_popup": "src/browser_action/browser_action.html"
+    "default_popup": "src/popup/popup.html"
   },
   "permissions": [
+    "alarms",
     "contentSettings",
     "notifications",
     "tabs",
+    "windows",
     "*://*/*"
   ],
   "content_scripts": [
