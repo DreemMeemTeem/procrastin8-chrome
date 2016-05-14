@@ -121,6 +121,7 @@
     
         #timer-stopButton {
             background-image: url(stop.svg);
+            display:none;
         }
         /*Reset button is next to the other two*/
         #timer-resetButton {
@@ -144,6 +145,8 @@
 </style>
 </head>
 <body>
+<div id="mainPopup">    
+
     <div id="topbar">
         <!--One of the buttons should be display:none; when the other is active.-->
         <button id="timer-startButton"></button>
@@ -182,10 +185,7 @@
     </div>
     
     
-<div id="mainPopup">
-<div id="timer-startButton" style="background-color:green;">Start Timer</div>
-<div id="timer-stopButton" style="background-color:red;">Stop Timer</div>
-<div id="timer-value" style="font-size:48px;">0:00:00</div>
+
 </div>
 
 <script src="../vendor/jquery/jquery.min.js"></script>
