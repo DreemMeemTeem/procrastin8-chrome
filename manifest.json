@@ -12,7 +12,6 @@
   "default_locale": "en",
   "background": {
     "scripts": [
-      "vendor/jquery/jquery.min.js",
       "timer.js",
       "background.js"
     ],
