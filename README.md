@@ -3,8 +3,9 @@
 Procrastin8 extension for [Google Ultron](http://ultronbrowser.io/).
 
 #### Features: ####
-* stopwatch
-* sprite animations and bubbles
-* manual site filter
-* break time
-* breakdown of time (chart or graph)
+* "Game-ifies" a productivity booster for a fun and new experience
+* Stopwatch which tracks your time on productive or unproductive sites
+* Cute sprite animations and motivational text bubbles
+* Breakdown of time spent (WIP)
+* Set break times (WIP)
+* Custom site filters (WIP)
