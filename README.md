@@ -1,7 +1,7 @@
 # Procrastin8
 ###### Spelled with an "8" to be hip! ######
 
-### Created as an entry for [HackGFS](http://hackgfs.io) 12hr hackathon ###
+### **GRAND PRIZE WINNER** of [HackGFS](http://hackgfs.io) 12hr hackathon ###
 Procrastin8 extension for [Google Ultron](http://ultronbrowser.io/).
 
 #### Features: ####
