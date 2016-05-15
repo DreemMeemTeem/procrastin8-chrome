@@ -1,6 +1,8 @@
 # procrastin8-chrome
 Procrastin8 extension for [Google Ultron](http://ultronbrowser.io/).
 
+## Made for [HackGFS](http://hackgfs.io) ##
+
 #### Features: ####
 * stopwatch
 * sprite animations and bubbles
