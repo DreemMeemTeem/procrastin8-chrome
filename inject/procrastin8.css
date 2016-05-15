@@ -21,7 +21,7 @@
         /*Minecraft fonts*/
         @font-face {
             font-family: Minecraft;
-            src: url(Minecraft.ttf);
+            src: url("chrome-extension://nojpjdaacdkekibkekkcoepdglbojanc/Minecraft.ttf");
         }
         
         
@@ -40,23 +40,23 @@
         
         /*Individual spritesheets*/
         #sprite-1 {
-            background-image: url(img/sprite-1.png);
+            background-image: url(chrome-extension://nojpjdaacdkekibkekkcoepdglbojanc/img/sprite-1.png);
         }
         
         #sprite-2 {
-            background-image: url(img/sprite-2.png);
+            background-image: url(chrome-extension://nojpjdaacdkekibkekkcoepdglbojanc/img/sprite-2.png);
         }
         
         #sprite-3 {
-            background-image: url(img/sprite-3.png);
+            background-image: url(chrome-extension://nojpjdaacdkekibkekkcoepdglbojanc/img/sprite-3.png);
         }
         
         #sprite-4 {
-            background-image: url(img/sprite-4.png);
+            background-image: url(chrome-extension://nojpjdaacdkekibkekkcoepdglbojanc/img/sprite-4.png);
         }
         
         #sprite-doge {
-            background-image: url(img/sprite-doge.png);
+            background-image: url(chrome-extension://nojpjdaacdkekibkekkcoepdglbojanc/img/sprite-doge.png);
         }
         
         /*Spritesheet text boxes */
@@ -88,11 +88,11 @@
             margin-left: -200px;
             margin-top: -10px;
             padding-right: 15px;
-            background-image: url(bubble-left.png);
+            background-image: url(chrome-extension://nojpjdaacdkekibkekkcoepdglbojanc/bubble-left.png);
         }
         
         .right {
-            background-image: url(bubble-right.png);
+            background-image: url(chrome-extension://nojpjdaacdkekibkekkcoepdglbojanc/bubble-right.png);
             margin-left: 150px;
             margin-top: -20px;
             padding-left: 15px;

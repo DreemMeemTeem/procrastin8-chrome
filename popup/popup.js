@@ -49,6 +49,7 @@ function forceSetTimerValue() {
 }
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  forceSetTimerValue();
   if (request.type === 'tick-master') {
     $('#timer-value').text(hms(request.value));  // TODO: format as h:mm:ss
   } else if (request.type === 'tick-site') {
@@ -58,8 +59,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   } else if (request.type === 'tick-unproductive') {
     $('#unprotime').text(hms(request.value));  // TODO: format as h:mm:ss
   }
-  
-  forceSetTimerValue();
+
 });
 
 function hms(secs) {
