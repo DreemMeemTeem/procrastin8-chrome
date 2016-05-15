@@ -12,6 +12,7 @@
   "default_locale": "en",
   "background": {
     "scripts": [
+      "vendor/underscore/underscore.min.js",
       "vendor/urijs/URI.min.js",
       "vendor/wildcard/wildcard.js",
       "timer.js",
@@ -38,7 +39,7 @@
   "content_scripts": [
     {
       "matches": [
-        "<all_urls>"
+        "*://*.instagram.com/*"
       ],
       "css": [
         "inject/procrastin8.css"

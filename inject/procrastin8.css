@@ -1,3 +1,139 @@
-/**
- * Place your custom CSS styles here.
- **/
+/*Put something similar to this in the html
+
+    <div class="procrastin8-sprite" id="sprite-1">
+        <div class="procrastin8-bubble left"><p>Get back to work, you scum of the earth</p></div>
+    </div>
+        <div class="procrastin8-sprite" id="sprite-2">
+        <div class="procrastin8-bubble right"><p>You disgust me with your lack of productivity</p></div>
+    </div>  
+        <div class="procrastin8-sprite" id="sprite-3">
+        <div class="procrastin8-bubble left"><p>Carry on, peon</p></div>
+    </div>
+        <div class="procrastin8-sprite" id="sprite-4">
+        <div class="procrastin8-bubble right"><p>You are a leech on society</p></div>
+    </div>
+
+
+*/
+
+
+    
+        /*Minecraft fonts*/
+        @font-face {
+            font-family: Minecraft;
+            src: url(Minecraft.ttf);
+        }
+        
+        
+        /*Sprite animations*/
+        .procrastin8-sprite {
+            width: 206px;
+            height: 228.5px;
+            -webkit-animation: play .8s steps(3) infinite;
+           -moz-animation: play .8s steps(3) infinite;
+            -ms-animation: play .8s steps(3) infinite;
+             -o-animation: play .8s steps(3) infinite;
+                animation: play .8s steps(3) infinite;
+            float: left;
+        }
+        
+        
+        /*Individual spritesheets*/
+        #sprite-1 {
+            background-image: url(img/sprite-1.png);
+        }
+        
+        #sprite-2 {
+            background-image: url(img/sprite-2.png);
+        }
+        
+        #sprite-3 {
+            background-image: url(img/sprite-3.png);
+        }
+        
+        #sprite-4 {
+            background-image: url(img/sprite-4.png);
+        }
+        
+        #sprite-doge {
+            background-image: url(img/sprite-doge.png);
+        }
+        
+        /*Spritesheet text boxes */
+        .procrastin8-sprite p {
+            display: inline-block;
+            word-wrap: break-word;
+            width: 200px;
+            height: 37px;
+            overflow: hidden;
+            font-family: Minecraft;
+            text-align: center;
+            margin-left: 20px;
+            z-index: 99;
+        }
+        
+        /*Bubble positioning*/
+        .procrastin8-bubble {
+            width: 244.5px;
+            height: 91px;
+            background-size: contain;
+            background-position: center center;
+            float: left;
+            background-repeat: no-repeat;
+        }
+        
+        
+        /*Speech bubble positioning*/
+        .left {
+            margin-left: -200px;
+            margin-top: -10px;
+            padding-right: 15px;
+            background-image: url(bubble-left.png);
+        }
+        
+        .right {
+            background-image: url(bubble-right.png);
+            margin-left: 150px;
+            margin-top: -20px;
+            padding-left: 15px;
+        }
+        
+        /*Animations*/
+        .moveupfrombottom {
+            position: fixed;
+            bottom: -250px;
+            /*This right style should be the one changed by the js, so that the sprites pop up randomly along the bottom*/
+            right: 0px;
+            /*Make sure the sprites with "left" classes on them don't appear on the leftmost side of the screen, and vice versa with right.*/
+            
+            -webkit-animation: moveup 8s ease-out alternate infinite;
+           -moz-animation: moveup 8s ease-out alternate infinite;
+            -ms-animation: moveup 8s ease-out alternate infinite;
+             -o-animation: moveup 8s ease-out alternate infinite;
+                animation: moveup 8s ease-out alternate infinite;
+        }
+        
+        @-webkit-keyframes play {
+           from { background-position:    0px; }
+             to { background-position: 685.5px; }
+        }
+        
+        @-webkit-keyframes moveup {
+            0% {bottom: -250px;}
+            50% { bottom: -50px; } 
+            75% { bottom: -50px; } 
+            100% {bottom: -250px;}
+            
+        }
+        
+        
+        /*Fade in on hover. Not needed.
+        .procrastin8-bubble {
+            opacity: 0;
+            transition: 0.25s;
+            z-index: 101;
+        }
+        .procrastin8-sprite:hover .procrastin8-bubble {
+            opacity: 1;
+            transition: 0.25s;
+        } */

@@ -32,7 +32,7 @@ Tracker.prototype.focusChange = function(outOfChrome, site) {
     } else if (typeof site === 'string') {
       var uri = URI(site);
       var domain = uri.hostname();
-      if (domain !== self.currentSite) {
+      if (domain !== self.currentSite && domain) {
         self.siteChange(domain);
       }
     } else {
@@ -90,10 +90,18 @@ Tracker.prototype.getSiteState = function() {
 
 Tracker.prototype.getProductivityState = function() {
   var self = this;
+  
+  var scores = self._getScores();
 
   return {
-    productive: self.productiveTimer.getState().value,
-    unproductive: self.unproductiveTimer.getState().value
+    productive: {
+      time: self.productiveTimer.getState().value,
+      score: scores[0]
+    },
+    unproductive: {
+      time: self.unproductiveTimer.getState().value,
+      score: scores[1]
+    }
   }
 }
 
@@ -110,4 +118,21 @@ Tracker.prototype.stop = function() {
   
   self.productiveTimer.reset();
   self.unproductiveTimer.reset();
+}
+
+Tracker.prototype._getScores = function() {
+  var self = this;
+  var positive = 0;
+  var negative = 0;
+  
+  _.mapObject(self.siteTimes, function(time, site) {
+    var score = gradeSite(site) * time;
+    if (Math.sign(score) === 1) {
+      positive += score;
+    } else if (Math.sign(score) === -1) {
+      negative += Math.abs(score);
+    }
+  });
+  
+  return [positive, negative]
 }

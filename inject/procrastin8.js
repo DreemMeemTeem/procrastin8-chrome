@@ -1,4 +1,4 @@
-chrome.extension.sendMessage({}, function(response) {
+/*chrome.extension.sendMessage({}, function(response) {
 	var readyStateCheckInterval = setInterval(function() {
 	if (document.readyState === "complete") {
 		clearInterval(readyStateCheckInterval);
@@ -10,4 +10,11 @@ chrome.extension.sendMessage({}, function(response) {
 
 	}
 	}, 10);
-});
+});*/
+
+
+var div = document.createElement('div');
+div.innerHTML = '<div class="procrastin8-sprite" id="sprite-1"><div class="procrastin8-bubble left"><p>Get back to work, you scum of the earth</p></div></div>';
+while (div.children.length > 0) {
+  document.body.appendChild(div.children[0]);
+}
