@@ -21,6 +21,18 @@ Tracker = function() {
   chrome.webNavigation.onCommitted.addListener(function(details) {
     self.focusChange(false, details.url);
   })
+  
+  
+  chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.type === 'tick-master') {
+      if (typeof self.siteTimes === 'number') {
+        self.siteTimes[self.currentSite] = self.siteTimes[self.currentSite] + self.siteTimer.getState().value;
+      } else {
+        self.siteTimes[self.currentSite] = self.siteTimer.getState().value;
+      }
+    }
+  });
+  
 }
 
 Tracker.prototype.focusChange = function(outOfChrome, site) {
