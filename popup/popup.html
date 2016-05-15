@@ -22,6 +22,7 @@
     body {
         margin: 0 auto;
         padding: 0px 0px 0px 0px;
+        overflow-x: hidden;
     }
     
     h1 {
@@ -51,6 +52,15 @@
     
     /*TOTAL POINTS AND TIME STYLING*/
     
+        #points {
+            flex: 1 1;
+        }
+    
+    #points h1,p {
+        font-smooth: always;
+        -webkit-font-smoothing : antialiased;
+    }
+    
         #points * {
             text-align: center;
         }
@@ -72,19 +82,20 @@
             line-height: 55px;
         }
     
-    #timer-value {
-        text-align: center;
-    }
+        #timer-value {
+            text-align: center;
+        }
     
     /*END TOTAL POINTS AND TIME STYLING*/
     
     /*BREAKDOWN STYLING*/
         .breakdown {
-            padding-left: 15px;
+            padding-left: 0px;
             padding-top: 30px;
             text-align: center;
             border-left: 1px solid black;
             height: 200px;
+            flex: 1 2;
         }
     
         /*spaces the breakdowns apart vertically*/
@@ -123,11 +134,30 @@
     
     #graph {
         width: 100%;
-        height: 200px;
+        height: 400px;
         background-color: rgba(200,200,200,1);
+    }
+    
+    #piechart {
+        background-image:url(../img/sexy-self-updating-chart.png);
+        width: 50%;
+        height: 250px;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        padding-top: 50px;
     }
     /*TOP BAR STYLING */
         
+    #topbar {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 40px;
+        background-color: #EEEEEE;
+    }
+    
         button {
             position: fixed;
             top: 0px;
@@ -169,10 +199,11 @@
         /*Reset button is next to the other two*/
         #timer-resetButton {
             background-image: url(reset.svg);
-            left: 30px;
+            left: 27.5px;
             width: 25px;
             height: 25px;
             top: 2.5px;
+            padding: 2.5px;
         }
     
         button:focus {
@@ -187,10 +218,21 @@
     
     
     
-    /*Dumb animation*/
+    /*Popup animation*/
     
     #sprite-1 {
             background-image: url(../img/sprite-1.png);
+        }
+    #sprite-2 {
+            background-image: url(../img/sprite-2.png);
+        }
+        
+        #sprite-3 {
+            background-image: url(../img/sprite-3.png);
+        }
+        
+        #sprite-4 {
+            background-image: url(../img/sprite-4.png);
         }
     
     /*Spritesheet text boxes */
@@ -231,11 +273,11 @@
             right: 0px;
             /*Make sure the sprites with "left" classes on them don't appear on the leftmost side of the screen, and vice versa with right.*/
             
-            -webkit-animation: moveup 2s ease-in-out alternate 1;
-           -moz-animation: moveup 2s ease-in-out alternate 1;
-            -ms-animation: moveup 2s ease-in-out alternate 1;
-             -o-animation: moveup 2s ease-in-out alternate 1;
-                animation: moveup 2s ease-in-out alternate 1;
+            -webkit-animation: moveup 2s ease-in-out alternate 1, bounce 2.2s ease-in-out alternate infinite;
+           -moz-animation: moveup 2s ease-in-out alternate 1, bounce 2.2s ease-in-out alternate infinite;
+            -ms-animation: moveup 2s ease-in-out alternate 1, bounce 2.2s ease-in-out alternate infinite;
+             -o-animation: moveup 2s ease-in-out alternate 1, bounce 2.2s ease-in-out alternate infinite;
+                animation: moveup 2s ease-in-out alternate 1, bounce 2.2s ease-in-out alternate infinite;
         animation-fill-mode: forwards;
         }
     
@@ -244,6 +286,49 @@
             40% { bottom: -100px; } 
             45% { bottom: -108px; } 
             100% {bottom: -108px;}
+            
+        }
+    
+    @-webkit-keyframes bounce {
+            0% {margin-bottom: -0px}
+            25% {margin-bottom: 8px} 
+            50% {margin-bottom: -0px} 
+            75% {margin-bottom: 8px}
+            100% {margin-bottom: -0px}
+            
+        }
+    
+    @-moz-keyframes moveup {
+            0% {bottom: -250px;}
+            40% { bottom: -100px; } 
+            45% { bottom: -108px; } 
+            100% {bottom: -108px;}
+            
+        }
+    
+    @-moz-keyframes bounce {
+            0% {margin-bottom: -0px}
+            25% {margin-bottom: 8px} 
+            50% {margin-bottom: -0px} 
+            75% {margin-bottom: 8px}
+            100% {margin-bottom: -0px}
+            
+        }
+    
+    @keyframes moveup {
+            0% {bottom: -250px;}
+            40% { bottom: -100px; } 
+            45% { bottom: -108px; } 
+            100% {bottom: -108px;}
+            
+        }
+    
+    @keyframes bounce {
+            0% {margin-bottom: -0px}
+            25% {margin-bottom: 8px} 
+            50% {margin-bottom: -0px} 
+            75% {margin-bottom: 8px}
+            100% {margin-bottom: -0px}
             
         }
 </style>
@@ -256,10 +341,10 @@
         <button id="timer-startButton"></button>
         <button id="timer-stopButton"></button>
         <button id="timer-resetButton"></button>
-        <a id="dashboard" href="http://www.google.com">Dashboard</a>
+        <a id="dashboard" href="http://pupper.us/zach/2016/hackgfs/" target="_blank">Dashboard</a>
     </div>
     <div id="flex-container">
-        <div class="points">
+        <div class="points" style="margin-right: 20px;">
             <h1>Total:</h1>
             <div id="totalpoints">
                 <h1>150</h1>
@@ -270,7 +355,7 @@
                 <h3>time</h3>
             </div>
         </div>
-        <div class="breakdown">
+        <div class="breakdown" style="margin-right: 5px;">
             <div id="productive">
                 <h1>Productive:</h1>
                 <p id="protime">1:23:45</p>
@@ -286,11 +371,11 @@
     </div>
     
     <div id="graph">
-        <p>this is where the beautifully designed charts will go</p>
+        <div id="piechart"></div>
     </div>
     
-    <div class="procrastin8-sprite moveupfrombottom" id="sprite-1">
-        <div class="procrastin8-bubble left"><p>Get back to work</p></div>
+    <div class="procrastin8-sprite moveupfrombottom" id="sprite-4">
+        <div class="procrastin8-bubble left"><p>Get back to work!</p></div>
     </div>
 
     
