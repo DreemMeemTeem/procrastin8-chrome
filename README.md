@@ -1,5 +1,5 @@
 # procrastin8-chrome
-### Made for [HackGFS](http://hackgfs.io) ###
+### Created as an entry for [HackGFS](http://hackgfs.io) 12hr hackathon ###
 Procrastin8 extension for [Google Ultron](http://ultronbrowser.io/).
 
 #### Features: ####
@@ -9,3 +9,7 @@ Procrastin8 extension for [Google Ultron](http://ultronbrowser.io/).
 * Breakdown of time spent (WIP)
 * Set break times (WIP)
 * Custom site filters (WIP)
+
+#### Screenshots: ###
+![Screenshot 1](http://i.imgur.com/LasVqAq.png "Screenshot 1")
+![Screenshot 2](http://i.imgur.com/sKQ7ACw.png "Screenshot 2")
